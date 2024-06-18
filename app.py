@@ -1,12 +1,12 @@
-from flask import Flask
+import numpy as np
 
-app = Flask(__name__)
+def interesting_function(a, b):
+    return a + b
+def flatten_function(l):
+    arr = np.array(l)
+    return arr.flatten('F').tolist()
 
-@app.route('/')
-def hello_world():
-    return 'Hello, WSB!'
-
-if __name__ == '__main__':
-    # using 4000 because 5000 is reserved on macos
-    app.run(host='0.0.0.0', port=4000)
-
+if __name__ == "__main__":
+    print(f"12 + 32 = {interesting_function(12, 32)}")
+    print(f"[1, 2, 3] = {flatten_function([1, 2, 3])}")
+    print(f"[1, [2, 3]] = {flatten_function([[2, 3], [2, 3]])}")
